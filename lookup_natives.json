@@ -1,0 +1,81 @@
+{
+  "ws": {
+    "skip": true, "BECAUSE": "npm test uses make, so a script would be needed with a custom command on Windows. CITGM support for scripts on Windows must be improved.",
+    "RUN MANUALLY WITH 1": "git clone https://github.com/websockets/ws.git",
+    "RUN MANUALLY WITH 2": "cd ws",
+    "RUN MANUALLY WITH 3": "npm install",
+    "RUN MANUALLY WITH 4": "./node_modules/.bin/mocha -t 5000 -s 2400 `find test -name '*.test.js'`",
+    "RUN MANUALLY note": "6 failed tests on Windows",
+    "replace": true
+  },
+  "bufferutil": {
+    "comment": "will just check if the module compiles alone, tested with ws",
+    "replace": true
+  },
+  "utf-8-validate": {
+    "comment": "will just check if the module compiles alone, tested with ws",
+    "replace": true
+  },
+  "node-sass": {
+    "skip": true, "BECAUSE": "the repository uses submodules so replace would have to be false, but the npm install does not include tests",
+    "RUN MANUALLY WITH 1": "git clone https://github.com/sass/node-sass.git",
+    "RUN MANUALLY WITH 2": "cd node-sass",
+    "RUN MANUALLY WITH 3": "git submodule update --init --recursive",
+    "RUN MANUALLY WITH 4": "SKIP_SASS_BINARY_DOWNLOAD_FOR_CI=1 npm install",
+    "RUN MANUALLY WITH 5": "npm test",
+    "replace": true,
+    "prefix": "v",
+    "env": { "SKIP_SASS_BINARY_DOWNLOAD_FOR_CI": 1 }
+  },
+  "kerberos": {
+    "skip": true, "BECAUSE": "needs a special envioronment to test, could just make sure it compiles using a script to disable tests",
+    "RUN MANUALLY WITH 1": "git clone https://github.com/christkv/kerberos.git",
+    "RUN MANUALLY WITH 2": "cd kerberos",
+    "RUN MANUALLY WITH 3": "npm install",
+    "prefix": "v",
+    "replace": true
+  },
+  "contextify": {
+    "prefix": "v",
+    "replace": true
+  },
+  "thread-sleep": {
+    "replace": true,
+    "install": ["--build-from-source"]
+  },
+  "weak": {
+    "replace": true
+  },
+  "bcrypt": {
+    "prefix": "v",
+    "replace": true
+  },
+  "hiredis": {
+    "comment": "the repo has submodules, does not work with replace",
+    "prefix": "v",
+    "replace": false
+  },
+  "sqlite3": {
+    "prefix": "v",
+    "replace": true,
+    "install": ["--build-from-source"]
+  },
+  "v8-profiler": {
+    "skip": true, "BECAUSE": "the install step is broken on node v4",
+    "prefix": "v",
+    "replace": true,
+    "install": ["--build-from-source"]
+  },
+  "iconv": {
+    "prefix": "v",
+    "replace": true
+  },
+  "ref": {
+    "replace": true
+  },
+  "v8-debug": {
+    "prefix": "v",
+    "replace": true,
+    "install": ["--build-from-source"]
+  }
+}
