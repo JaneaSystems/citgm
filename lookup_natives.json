@@ -16,15 +16,7 @@
     "comment": "will just check if the module compiles alone, tested with ws",
     "replace": true
   },
-  "node-sass": {
-    "skip": true, "BECAUSE": "the repository uses submodules so replace would have to be false, but the npm install does not include tests",
-    "RUN MANUALLY WITH 1": "git clone https://github.com/sass/node-sass.git",
-    "RUN MANUALLY WITH 2": "cd node-sass",
-    "RUN MANUALLY WITH 3": "git submodule update --init --recursive",
-    "RUN MANUALLY WITH 4": "SKIP_SASS_BINARY_DOWNLOAD_FOR_CI=1 npm install",
-    "RUN MANUALLY WITH 5": "npm test",
-    "replace": true,
-    "prefix": "v",
+  "node-sass": {    
     "env": { "SKIP_SASS_BINARY_DOWNLOAD_FOR_CI": 1 }
   },
   "kerberos": {
@@ -50,11 +42,7 @@
     "prefix": "v",
     "replace": true
   },
-  "hiredis": {
-    "comment": "the repo has submodules, does not work with replace",
-    "prefix": "v",
-    "replace": false
-  },
+  "hiredis": { },
   "sqlite3": {
     "prefix": "v",
     "replace": true,
