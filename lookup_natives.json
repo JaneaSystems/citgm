@@ -20,10 +20,6 @@
     "env": { "SKIP_SASS_BINARY_DOWNLOAD_FOR_CI": 1 }
   },
   "kerberos": {
-    "skip": true, "BECAUSE": "needs a special envioronment to test, could just make sure it compiles using a script to disable tests",
-    "RUN MANUALLY WITH 1": "git clone https://github.com/christkv/kerberos.git",
-    "RUN MANUALLY WITH 2": "cd kerberos",
-    "RUN MANUALLY WITH 3": "npm install",
     "prefix": "v",
     "replace": true
   },
