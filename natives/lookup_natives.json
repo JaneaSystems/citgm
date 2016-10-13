@@ -20,8 +20,7 @@
     "env": { "SKIP_SASS_BINARY_DOWNLOAD_FOR_CI": 1 }
   },
   "kerberos": {
-    "prefix": "v",
-    "replace": true
+    "testscript": "scripts/kerberos"
   },
   "contextify": {
     "prefix": "v",
