@@ -1,11 +1,8 @@
 {
   "ws": {
-    "skip": true, "BECAUSE": "npm test uses make, so a script would be needed with a custom command on Windows. CITGM support for scripts on Windows must be improved.",
-    "RUN MANUALLY WITH 1": "git clone https://github.com/websockets/ws.git",
-    "RUN MANUALLY WITH 2": "cd ws",
-    "RUN MANUALLY WITH 3": "npm install",
-    "RUN MANUALLY WITH 4": "./node_modules/.bin/mocha -t 5000 -s 2400 `find test -name '*.test.js'`",
-    "RUN MANUALLY note": "6 failed tests on Windows",
+    "test-command": {
+      "win32": "node_modules\\\\.bin\\\\mocha -t 5000 -s 2400 test\\\\*.test.js"
+    },
     "replace": true
   },
   "bufferutil": {
@@ -20,7 +17,7 @@
     "env": { "SKIP_SASS_BINARY_DOWNLOAD_FOR_CI": 1 }
   },
   "kerberos": {
-    "testscript": "scripts/kerberos"
+    "test-command": " "
   },
   "contextify": {
     "prefix": "v",
