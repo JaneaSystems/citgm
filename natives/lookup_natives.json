@@ -32,10 +32,12 @@
   },
   "bcrypt": {
     "prefix": "v",
-    "replace": true
+    "replace": true,
+    "test-command": "nodeunit test"
   },
   "hiredis": { },
   "sqlite3": {
+    "master": true,
     "prefix": "v",
     "replace": true,
     "install": ["--build-from-source"]
@@ -54,6 +56,7 @@
     "replace": true
   },
   "v8-debug": {
+    "skip": true,
     "prefix": "v",
     "replace": true,
     "install": ["--build-from-source"]
