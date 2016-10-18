@@ -33,17 +33,14 @@
   "bcrypt": {
     "prefix": "v",
     "replace": true,
-    "test-command": "nodeunit test"
+    "test-command": {
+      "linux": "./node_modules/.bin/nodeunit test",
+      "win32": "node_modules\\\\.bin\\\\nodeunit test"
+    }
   },
   "hiredis": { },
   "sqlite3": {
     "master": true,
-    "prefix": "v",
-    "replace": true,
-    "install": ["--build-from-source"]
-  },
-  "v8-profiler": {
-    "skip": true, "BECAUSE": "the install step is broken on node v4",
     "prefix": "v",
     "replace": true,
     "install": ["--build-from-source"]
@@ -55,7 +52,14 @@
   "ref": {
     "replace": true
   },
+  "v8-profiler": {
+    "node-version": ">=6.0.0",
+    "prefix": "v",
+    "replace": true,
+    "install": ["--build-from-source"]
+  },
   "v8-debug": {
+    "node-version": ">=6.0.0",
     "skip": true,
     "prefix": "v",
     "replace": true,
