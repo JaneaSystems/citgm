@@ -1,26 +1,28 @@
 {
   "ws": {
+    "flaky": "win32",
     "test-command": {
       "win32": "node_modules\\\\.bin\\\\mocha -t 5000 -s 2400 test\\\\*.test.js"
     },
     "replace": true
   },
   "bufferutil": {
-    "comment": "will just check if the module compiles alone, tested with ws",
     "replace": true
   },
   "utf-8-validate": {
-    "comment": "will just check if the module compiles alone, tested with ws",
     "replace": true
   },
-  "node-sass": {    
+  "node-sass": {
+    "flaky": "win32",
     "env": { "SKIP_SASS_BINARY_DOWNLOAD_FOR_CI": 1 }
   },
   "kerberos": {
     "test-command": " "
   },
   "contextify": {
+    "flaky": "win32",
     "prefix": "v",
+    "install": ["--build-from-source"],
     "replace": true
   },
   "thread-sleep": {
@@ -46,6 +48,7 @@
     "install": ["--build-from-source"]
   },
   "iconv": {
+    "flaky": "win32",
     "prefix": "v",
     "replace": true
   },
@@ -53,12 +56,14 @@
     "replace": true
   },
   "v8-profiler": {
+    "flaky": "win32",
     "node-version": ">=6.0.0",
     "prefix": "v",
     "replace": true,
     "install": ["--build-from-source"]
   },
   "v8-debug": {
+    "flaky": "win32",
     "node-version": ">=6.0.0",
     "prefix": "v",
     "replace": true,
