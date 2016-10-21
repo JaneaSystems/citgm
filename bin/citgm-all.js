@@ -66,6 +66,7 @@ function runCitgm (mod, name, next) {
   if (mod.skip) {
     return next();
   }
+
   if (mod['node-version']) {
     // Get node version, stripping prerealase
     const nodeVersion = `${semver.major(process.version)}.${semver.minor(process.version)}.${semver.patch(process.version)}`;
