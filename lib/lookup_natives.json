@@ -36,7 +36,7 @@
     "prefix": "v",
     "replace": true,
     "test-command": {
-      "linux": "./node_modules/.bin/nodeunit test",
+      "default": "./node_modules/.bin/nodeunit test",
       "win32": "node_modules\\\\.bin\\\\nodeunit test"
     }
   },

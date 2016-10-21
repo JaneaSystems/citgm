@@ -104,17 +104,26 @@ citgm-all -l ./path/to/my_lookup.json
 ```
 For syntax, see [lookup.json](./lib/lookup.json), the available attributes are:
 
+  * `"replace": true` - Download module from github repo in package.json
+  * `"master": true` - Use the master branch
+  * `"prefix": "v"` - Specify the prefix used in the module version.
+  * `"flaky": true` - Ignore failures
+  * `"skip": true` - Completely skip the module
+  * `"repo": "https://github.com/pugjs/jade"` - Use a different github repo
+  * `"skipAnsi": true` - Strip ansi data from output stream of npm
+  * `"script": /path/to/script | https://url/to/script` - Use a custom test script
+  * `"sha": "<git-commit-sha>"` - Test against a specific commit
+  * `"node-version": ">=6.0.0"` - Required minimal node.js version. Uses node-semver syntax.
+  * `"install": ["--build-from-source"]` - Array of extra parameters passed to npm install 
+  * `"env": { "SKIP_SASS_BINARY_DOWNLOAD_FOR_CI": 1 }` - Extra environment variables for npm test
+  * `"test-command"` - Use custom test command:
+```javascript
+"test-command": {
+  "default": "./node_modules/.bin/nodeunit test",
+  "win32": "node_modules\\\\.bin\\\\nodeunit test"
+}
 ```
-"replace": true              Download module from github repo in package.json
-"master": true               Use the master branch
-"prefix": "v"                Specify the prefix used in the module version.
-"flaky": true                Ignore failures
-"skip": true                 Completely skip the module
-"repo": "https://github.com/pugjs/jade" - Use a different github repo
-"skipAnsi": true             Strip ansi data from output stream of npm
-"script": /path/to/script | https://url/to/script - Use a custom test script
-"sha": "<git-commit-sha>"    Test against a specific commit
-```
+
 ## Testing
 
 You can run the test suite using npm
