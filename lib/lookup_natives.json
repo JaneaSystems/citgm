@@ -4,33 +4,41 @@
     "test-command": {
       "win32": "node_modules\\\\.bin\\\\mocha -t 5000 -s 2400 test\\\\*.test.js"
     },
-    "replace": true
+    "replace": true,
+    "verify-node-gyp": true
   },
   "bufferutil": {
-    "replace": true
+    "replace": true,
+    "verify-node-gyp": true
   },
   "utf-8-validate": {
-    "replace": true
+    "replace": true,
+    "verify-node-gyp": true
   },
   "node-sass": {
     "flaky": "win32",
-    "env": { "SKIP_SASS_BINARY_DOWNLOAD_FOR_CI": 1 }
+    "env": { "SKIP_SASS_BINARY_DOWNLOAD_FOR_CI": 1 },
+    "verify-node-gyp": true
   },
   "kerberos": {
-    "test-command": " "
+    "test-command": " ",
+    "verify-node-gyp": true
   },
   "contextify": {
     "flaky": "win32",
     "prefix": "v",
     "install": ["--build-from-source"],
-    "replace": true
+    "replace": true,
+    "verify-node-gyp": true
   },
   "thread-sleep": {
     "replace": true,
-    "install": ["--build-from-source"]
+    "install": ["--build-from-source"],
+    "verify-node-gyp": true
   },
   "weak": {
-    "replace": true
+    "replace": true,
+    "verify-node-gyp": true
   },
   "bcrypt": {
     "prefix": "v",
@@ -38,35 +46,43 @@
     "test-command": {
       "default": "./node_modules/.bin/nodeunit test",
       "win32": "node_modules\\\\.bin\\\\nodeunit test"
-    }
+    },
+    "verify-node-gyp": true
   },
-  "hiredis": { },
+  "hiredis": {
+    "verify-node-gyp": true
+  },
   "sqlite3": {
     "master": true,
     "prefix": "v",
     "replace": true,
-    "install": ["--build-from-source"]
+    "install": ["--build-from-source"],
+    "verify-node-gyp": true
   },
   "iconv": {
     "flaky": "win32",
     "prefix": "v",
-    "replace": true
+    "replace": true,
+    "verify-node-gyp": true
   },
   "ref": {
-    "replace": true
+    "replace": true,
+    "verify-node-gyp": true
   },
   "v8-profiler": {
     "flaky": "win32",
     "node-version": ">=6.0.0",
     "prefix": "v",
     "replace": true,
-    "install": ["--build-from-source"]
+    "install": ["--build-from-source"],
+    "verify-node-gyp": true
   },
   "v8-debug": {
     "flaky": "win32",
     "node-version": ">=6.0.0",
     "prefix": "v",
     "replace": true,
-    "install": ["--build-from-source"]
+    "install": ["--build-from-source"],
+    "verify-node-gyp": true
   }
 }
