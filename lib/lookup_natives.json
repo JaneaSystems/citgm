@@ -31,11 +31,13 @@
     "replace": true,
     "verify-node-gyp": true
   },
-  "thread-sleep": {
-    "replace": true,
-    "install": ["--build-from-source"],
-    "verify-node-gyp": true
-  },
+  "thread-sleep": [ {
+      "replace": true,
+      "install": ["--build-from-source"],
+      "verify-node-gyp": true
+    }, {
+      "replace": true
+    } ],
   "weak": {
     "replace": true,
     "verify-node-gyp": true

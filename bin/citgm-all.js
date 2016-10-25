@@ -102,7 +102,11 @@ function runCitgm (mod, name, next) {
     else {
       log.info('done', 'The test suite for ' + result.name + ' version ' + result.version + ' passed.');
     }
-    modules.push(result);
+    if (results instanceof Array) {
+      modules.concat(results);
+    } else {
+      modules.push(result);
+    }
     process.removeListener('SIGINT', cleanup);
     process.removeListener('SIGHUP', cleanup);
     process.removeListener('SIGBREAK', cleanup);
