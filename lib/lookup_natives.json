@@ -32,10 +32,12 @@
     "verify-node-gyp": true
   },
   "thread-sleep": [ {
+      "test-name": "using node-gyp",
       "replace": true,
       "install": ["--build-from-source"],
       "verify-node-gyp": true
     }, {
+      "test-name": "using node-pre-gyp",
       "replace": true
     } ],
   "weak": {
