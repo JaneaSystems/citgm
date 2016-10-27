@@ -5,45 +5,45 @@
       "win32": "node_modules\\\\.bin\\\\mocha -t 5000 -s 2400 test\\\\*.test.js"
     },
     "replace": true,
-    "verify-node-gyp": true
+    "verify-node-gyp-called": true
   },
   "bufferutil": {
     "replace": true,
-    "verify-node-gyp": true
+    "verify-node-gyp-called": true
   },
   "utf-8-validate": {
     "replace": true,
-    "verify-node-gyp": true
+    "verify-node-gyp-called": true
   },
   "node-sass": {
     "flaky": "win32",
     "env": { "SKIP_SASS_BINARY_DOWNLOAD_FOR_CI": 1 },
-    "verify-node-gyp": true
+    "verify-node-gyp-called": true
   },
   "kerberos": {
     "test-command": " ",
-    "verify-node-gyp": true
+    "verify-node-gyp-called": true
   },
   "contextify": {
     "flaky": "win32",
     "prefix": "v",
     "install": ["--build-from-source"],
     "replace": true,
-    "verify-node-gyp": true
+    "verify-node-gyp-called": true
   },
   "thread-sleep": [ {
       "test-name": "using node-gyp",
       "replace": true,
       "install": ["--build-from-source"],
-      "verify-node-gyp": true
+      "verify-node-gyp-called": true
     }, {
       "test-name": "using node-pre-gyp",
       "replace": true,
-      "verify-node-gyp": false
+      "verify-node-gyp-not-called": true
     } ],
   "weak": {
     "replace": true,
-    "verify-node-gyp": true
+    "verify-node-gyp-called": true
   },
   "bcrypt": {
     "prefix": "v",
@@ -52,27 +52,27 @@
       "default": "./node_modules/.bin/nodeunit test",
       "win32": "node_modules\\\\.bin\\\\nodeunit test"
     },
-    "verify-node-gyp": true
+    "verify-node-gyp-called": true
   },
   "hiredis": {
-    "verify-node-gyp": true
+    "verify-node-gyp-called": true
   },
   "sqlite3": {
     "master": true,
     "prefix": "v",
     "replace": true,
     "install": ["--build-from-source"],
-    "verify-node-gyp": true
+    "verify-node-gyp-called": true
   },
   "iconv": {
     "flaky": "win32",
     "prefix": "v",
     "replace": true,
-    "verify-node-gyp": true
+    "verify-node-gyp-called": true
   },
   "ref": {
     "replace": true,
-    "verify-node-gyp": true
+    "verify-node-gyp-called": true
   },
   "v8-profiler": {
     "flaky": "win32",
@@ -80,7 +80,7 @@
     "prefix": "v",
     "replace": true,
     "install": ["--build-from-source"],
-    "verify-node-gyp": true
+    "verify-node-gyp-called": true
   },
   "v8-debug": {
     "flaky": "win32",
@@ -88,6 +88,6 @@
     "prefix": "v",
     "replace": true,
     "install": ["--build-from-source"],
-    "verify-node-gyp": true
+    "verify-node-gyp-called": true
   }
 }
