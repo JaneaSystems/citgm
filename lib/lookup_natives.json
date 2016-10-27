@@ -38,7 +38,8 @@
       "verify-node-gyp": true
     }, {
       "test-name": "using node-pre-gyp",
-      "replace": true
+      "replace": true,
+      "verify-node-gyp": false
     } ],
   "weak": {
     "replace": true,
