@@ -79,8 +79,10 @@ function launch(mod, options) {
 
   var modules = [];
 
-  runner.on('start', function(name) {
+  runner.on('start', function(name, test) {
     log.info('starting', name);
+    if (test)
+      log.info('test', test);
   }).on('fail', function(err) {
     log.error('failure', err.message);
   }).on('data', function(type, key, message) {
