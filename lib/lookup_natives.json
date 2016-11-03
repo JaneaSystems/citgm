@@ -15,46 +15,31 @@
     "replace": true,
     "verify-node-gyp-called": true
   },
-    "node-sass": [ {
+  "node-sass": [ {
       "test-name": "using node-gyp",
       "flaky": "win32",
-      "env": { "SKIP_SASS_BINARY_DOWNLOAD_FOR_CI": 1 },
-      "verify-node-gyp-called": true
+      "env": { "SKIP_SASS_BINARY_DOWNLOAD_FOR_CI": 1 }
     }, {
       "test-name": "not using node-gyp",
-      "flaky": "win32",
-      "verify-node-gyp-not-called": true
+      "flaky": "win32"
     }
   ],
   "kerberos": {
     "test-command": " ",
     "verify-node-gyp-called": true
   },
-  "contextify": [ {
-      "test-name": "using node-gyp",
+  "contextify": {
       "flaky": "win32",
       "prefix": "v",
       "install": ["--build-from-source"],
       "replace": true,
       "verify-node-gyp-called": true
-    }, {
-      "test-name": "not using node-gyp",
-      "flaky": "win32",
-      "prefix": "v",
-      "replace": true,
-      "verify-node-gyp-not-called": true
-    }
-  ],
-  "thread-sleep": [ {
-      "test-name": "using node-gyp",
+  },
+  "thread-sleep": {
       "replace": true,
       "install": ["--build-from-source"],
       "verify-node-gyp-called": true      
-    }, {
-      "test-name": "not using node-gyp",
-      "replace": true,
-      "verify-node-gyp-not-called": true
-    } ],
+  },
   "weak": {
     "replace": true,
     "verify-node-gyp-called": true
@@ -93,42 +78,23 @@
     "verify-node-gyp-called": true
   },
   "ref": {
-    "test-name": "using node-gyp",
     "replace": true,
     "verify-node-gyp-called": true
   },
-  "v8-profiler":  [ {
-      "test-name": "using node-gyp",
+  "v8-profiler":  {
       "flaky": "win32",
       "node-version": ">=6.0.0",
       "prefix": "v",
       "replace": true,
       "install": ["--build-from-source"],
       "verify-node-gyp-called": true
-    }, {
-      "test-name": "not using node-gyp",
-      "flaky": "win32",
-      "node-version": ">=6.0.0",
-      "prefix": "v",
-      "replace": true,
-      "verify-node-gyp-not-called": true
-    }
-  ],
-  "v8-debug": [ {
-      "test-name": "using node-gyp",
+  },
+  "v8-debug": {
       "flaky": "win32",
       "node-version": ">=6.0.0",
       "prefix": "v",
       "replace": true,
       "install": ["--build-from-source"],
       "verify-node-gyp-called": true
-    }, {
-      "test-name": "not using node-gyp",
-      "flaky": "win32",
-      "node-version": ">=6.0.0",
-      "prefix": "v",
-      "replace": true,
-      "verify-node-gyp-not-called": true
-    }
-  ]
+  }
 }
