@@ -29,7 +29,6 @@
     "verify-node-gyp-called": true
   },
   "contextify": {
-      "flaky": "win32",
       "prefix": "v",
       "install": ["--build-from-source"],
       "replace": true,
@@ -65,14 +64,12 @@
       "verify-node-gyp-called": true
     }, {
       "test-name": "not using node-gyp",
-      "flaky": "win32",
       "prefix": "v",
       "replace": true,
       "verify-node-gyp-not-called": true
     }
   ],
   "iconv": {
-    "flaky": "win32",
     "prefix": "v",
     "replace": true,
     "verify-node-gyp-called": true
@@ -82,7 +79,6 @@
     "verify-node-gyp-called": true
   },
   "v8-profiler":  {
-      "flaky": "win32",
       "node-version": ">=6.0.0",
       "prefix": "v",
       "replace": true,
@@ -90,7 +86,6 @@
       "verify-node-gyp-called": true
   },
   "v8-debug": {
-      "flaky": "win32",
       "node-version": ">=6.0.0",
       "prefix": "v",
       "replace": true,
