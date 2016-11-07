@@ -119,6 +119,7 @@ For syntax, see [lookup.json](./lib/lookup.json), the available attributes are:
   * `"vertify-node-gyp-not-called": true` - Asserts that `npm` did not call `node-gyp`
   * `"install": ["--build-from-source"]` - Array of extra parameters passed to `npm install`
   * `"env": { "SKIP_SASS_BINARY_DOWNLOAD_FOR_CI": 1 }` - Extra environment variables for `npm install`
+  * `"node-version": ">=6.0.0"` - Required minimal node.js version. Uses `node-semver` syntax.  
   * `"test-command"` - Use custom test command:
 ```javascript
 "test-command": {
