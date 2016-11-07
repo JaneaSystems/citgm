@@ -127,7 +127,12 @@
     "flaky": true
   },
   "ws": {
-    "replace": true
+    "replace": true,
+    "flaky": "win32",
+    "test-command": {
+      "win32": "node_modules\\\\.bin\\\\mocha -t 5000 -s 2400 test\\\\*.test.js"
+    },
+    "verify-node-gyp-called": true
   },
   "vinyl": {
     "replace": true,
@@ -284,7 +289,12 @@
   },
   "bcrypt": {
     "replace": true,
-    "prefix": "v"
+    "prefix": "v",
+    "test-command": {
+      "default": "./node_modules/.bin/nodeunit test",
+      "win32": "node_modules\\\\.bin\\\\nodeunit test"
+    },
+    "verify-node-gyp-called": true
   },
   "ref": {
     "replace": true,
@@ -318,6 +328,10 @@
   },
   "utf-8-validate": {
     "replace": true,
+    "verify-node-gyp-called": true
+  },
+  "kerberos": {
+    "test-command": " ",
     "verify-node-gyp-called": true
   },
   "weak": {
