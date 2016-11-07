@@ -288,7 +288,8 @@
   },
   "ref": {
     "replace": true,
-    "flaky": "aix"
+    "flaky": "aix",
+    "verify-node-gyp-called": true
   },
   "time": {
     "replace": true,
@@ -310,5 +311,25 @@
   "full-icu-test": {
     "replace": true,
     "prefix": "v"
+  },
+  "bufferutil": {
+    "replace": true,
+    "verify-node-gyp-called": true
+  },
+  "utf-8-validate": {
+    "replace": true,
+    "verify-node-gyp-called": true
+  },
+  "weak": {
+    "replace": true,
+    "verify-node-gyp-called": true
+  },
+  "hiredis": {
+    "verify-node-gyp-called": true
+  },
+  "iconv": {
+    "prefix": "v",
+    "replace": true,
+    "verify-node-gyp-called": true
   }
 }
