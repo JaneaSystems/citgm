@@ -342,5 +342,30 @@
     "prefix": "v",
     "replace": true,
     "verify-node-gyp-called": true
-  }
+  },
+  "contextify": {
+    "prefix": "v",
+    "install": ["--build-from-source"],
+    "replace": true,
+    "verify-node-gyp-called": true
+  },
+  "thread-sleep": {
+    "replace": true,
+    "install": ["--build-from-source"],
+    "verify-node-gyp-called": true      
+  },
+  "sqlite3": [ {
+      "test-name": "using node-gyp",
+      "master": true,
+      "prefix": "v",
+      "replace": true,
+      "install": ["--build-from-source"],
+      "verify-node-gyp-called": true
+    }, {
+      "test-name": "not using node-gyp",
+      "prefix": "v",
+      "replace": true,
+      "verify-node-gyp-not-called": true
+    }
+  ]
 }

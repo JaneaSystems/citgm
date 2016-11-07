@@ -117,6 +117,7 @@ For syntax, see [lookup.json](./lib/lookup.json), the available attributes are:
   * `"verify-node-gyp-called": true` - Asserts that `npm` called `node-gyp` with either
   `build` or `rebuild`
   * `"vertify-node-gyp-not-called": true` - Asserts that `npm` did not call `node-gyp`
+  * `"install": ["--build-from-source"]` - Array of extra parameters passed to `npm install`
   * `"test-command"` - Use custom test command:
 ```javascript
 "test-command": {
