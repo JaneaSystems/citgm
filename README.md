@@ -114,6 +114,9 @@ For syntax, see [lookup.json](./lib/lookup.json), the available attributes are:
   * `"script": /path/to/script | https://url/to/script` - Use a custom test script
   * `"sha": "<git-commit-sha>"` - Test against a specific commit
   * `"test-name": "name"` - Custom name for test case
+  * `"verify-node-gyp-called": true` - Asserts that `npm` called `node-gyp` with either
+  `build` or `rebuild`
+  * `"vertify-node-gyp-not-called": true` - Asserts that `npm` did not call `node-gyp`
 
 ## Testing
 
