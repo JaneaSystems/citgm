@@ -378,5 +378,17 @@
       "replace": true,
       "verify-node-gyp-not-called": true
     }
-  ]
+  ],
+   "v8-profiler":  {
+      "node-version": ">=6.0.0",
+      "prefix": "v",
+      "replace": true,
+      "verify-node-gyp-called": true
+  },
+  "v8-debug": {
+      "node-version": ">=6.0.0",
+      "prefix": "v",
+      "replace": true,
+      "verify-node-gyp-called": true
+  }
 }
