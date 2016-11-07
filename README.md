@@ -117,6 +117,13 @@ For syntax, see [lookup.json](./lib/lookup.json), the available attributes are:
   * `"verify-node-gyp-called": true` - Asserts that `npm` called `node-gyp` with either
   `build` or `rebuild`
   * `"vertify-node-gyp-not-called": true` - Asserts that `npm` did not call `node-gyp`
+  * `"test-command"` - Use custom test command:
+```javascript
+"test-command": {
+  "default": "./node_modules/.bin/nodeunit test",
+  "win32": "node_modules\\\\.bin\\\\nodeunit test"
+}
+```
 
 ## Testing
 
