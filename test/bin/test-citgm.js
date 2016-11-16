@@ -36,7 +36,7 @@ test('bin: omg-i-fail /w markdown output /w nodedir', function (t) {
 
 test('bin: omg-i-fail /w custom script /w tap to file /w junit to file /w append', function (t) {
   t.plan(1);
-  var proc = callCitgm(['omg-i-fail', '-l', './fixtures/custom-lookup-script.json', '--tap', '/dev/null', '--junit', '/dev/null', '--append']);
+  var proc = callCitgm(['omg-i-fail', '-l', './test/fixtures/custom-lookup-script.json', '--tap', '/dev/null', '--junit', '/dev/null', '--append']);
   proc.on('error', function(err) {
     t.error(err);
     t.fail('we should not get an error testing omg-i-fail');
