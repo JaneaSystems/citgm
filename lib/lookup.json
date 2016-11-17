@@ -1,21 +1,33 @@
 {
+  "citgm": {
+    "flaky": ["v8", "win32"]
+  },
   "lodash": {
     "replace": true
   },
   "underscore": {
     "replace": true,
     "master": true,
-    "flaky": "aix"
+    "flaky": "aix",
+    "test-command": {
+      "win32": "for %i in (test\\\\*.js) do node_modules\\\\.bin\\\\qunit-cli %i"
+    }
   },
   "request": {
     "replace": true,
     "prefix": "v",
-    "flaky": true
+    "flaky": true,
+    "test-command": {
+      "win32": "for %i in (test\\\\test-*.js) do node_modules\\\\.bin\\\\traper %i"
+    }
   },
   "commander": {
     "replace": true,
     "prefix": "v",
-    "repo": "https://github.com/tj/commander.js"
+    "repo": "https://github.com/tj/commander.js",
+    "test-command": {
+      "win32": "for %i in (test\\\\test.*js) do node %i"
+    }
   },
   "express": {
     "replace": true,
@@ -38,11 +50,14 @@
   "glob": {
     "replace": true,
     "prefix": "v",
-    "flaky": ["v6", "v7"]
+    "flaky": ["v6", "v7", "win32"]
   },
   "gulp-util": {
     "replace": true,
-    "prefix": "v"
+    "prefix": "v",
+    "test-command": {
+      "win32": "node_modules\\\\.bin\\\\mocha"
+    }
   },
   "pug": {
     "replace": true,
@@ -56,7 +71,7 @@
   },
   "fs-extra": {
     "replace": true,
-    "flaky": ["linux-ia32", "aix", "s390"]
+    "flaky": ["linux-ia32", "aix", "s390", "win32"]
   },
   "body-parser": {
     "replace": true
@@ -67,21 +82,26 @@
     "flaky": ["darwin", "aix"]
   },
   "jquery": {
-    "replace": true
+    "replace": true,
+    "flaky": "win32"
   },
   "rimraf": {
     "replace": true,
-    "prefix": "v"
+    "prefix": "v",
+    "flaky": "win32"
   },
   "david": {
     "replace": true,
     "prefix": "v",
-    "flaky": true
+    "flaky": true,
+    "test-command": {
+      "win32": "node test\\\\david.js && node test\\\\cli.js"
+    }
   },
   "eslint": {
     "replace": true,
     "prefix": "v",
-    "flaky": ["ppc", "v7", "s390"]
+    "flaky": ["ppc", "v7", "v8", "s390", "win32"]
   },
   "tape": {
     "replace": true,
@@ -90,15 +110,16 @@
   },
   "browserify": {
     "replace": true,
-    "flaky": ["v7"]
+    "flaky": ["v7", "v8", "win32"]
   },
   "watchify": {
     "replace": true,
     "prefix": "v",
-    "flaky": ["ppc", "v7"]
+    "flaky": ["ppc", "v7", "v8", "win32"]
   },
   "stylus": {
-    "replace": true
+    "replace": true,
+    "flaky": "win32"
   },
   "level": {
     "replace": true,
@@ -113,13 +134,16 @@
   "react": {
     "replace": true,
     "prefix": "v",
-    "flaky": ["v0.10", "v0.12", "v6", "v7"]
+    "flaky": ["v0.10", "v0.12", "v6", "v7", "v8", "win32"]
   },
   "gulp": {
     "replace": true,
     "prefix": "v",
     "flaky": {
       "ppc": ["v5", "v6"]
+    },
+    "test-command": {
+      "win32": "node_modules\\\\.bin\\\\mocha --reporter spec"
     }
   },
   "moment": {
@@ -173,12 +197,16 @@
   },
   "binary-split": {
     "replace": true,
-    "prefix": "v"
+    "prefix": "v",
+    "flaky": "win32"
   },
   "spdy": {
     "replace": true,
     "prefix": "v",
-    "flaky": "aix"
+    "flaky": "aix",
+    "test-command": {
+      "win32": "node_modules\\\\.bin\\\\mocha --reporter=spec test\\\\*-test.js"
+    }
   },
   "dicer": {
     "replace": true,
@@ -186,7 +214,10 @@
   },
   "spdy-transport": {
     "replace": true,
-    "prefix": "v"
+    "prefix": "v",
+    "test-command": {
+      "win32": "node_modules\\\\.bin\\\\mocha --reporter=spec test/**/*-test.js test/**/**/*-test.js"
+    }
   },
   "sax": {
     "replace": true,
@@ -210,11 +241,15 @@
   },
   "jsonstream": {
     "replace": true,
-    "prefix": "v"
+    "prefix": "v",
+    "test-command": {
+      "win32": "for %i in (test\\\\*.js) do node %i"
+    }    
   },
   "csv-parser": {
     "replace": true,
-    "prefix": "v"
+    "prefix": "v",
+    "flaky": "win32"
   },
   "async": {
     "replace": true,
@@ -222,7 +257,8 @@
     "flaky": {
       "s390": true,
       "darwin": true,
-      "v0.12": ["fedora22", "ubuntu1204"]
+      "v0.12": ["fedora22", "ubuntu1204"],
+      "win32": true
     }
   },
   "bluebird": {
@@ -232,7 +268,7 @@
   "mkdirp": {
     "replace": true,
     "master": true,
-    "flaky": ["v6", "v7"]
+    "flaky": ["v6", "v7", "v8", "win32"]
   },
   "yeoman-generator": {
     "replace": true,
@@ -317,13 +353,13 @@
       "replace": true,
       "prefix": "v",
       "test-name": "using node-gyp",
-      "flaky": ["ppc", "v7", "s390", "win32"],
+      "flaky": ["ppc", "v7", "v8", "s390", "win32"],
       "env": { "SKIP_SASS_BINARY_DOWNLOAD_FOR_CI": 1 }
     }, {
       "replace": true,
       "prefix": "v",
       "test-name": "not using node-gyp",
-      "flaky": ["ppc", "v7", "s390", "win32"]
+      "flaky": ["ppc", "v7", "v8", "s390", "win32"]
     }
   ],
   "full-icu-test": {
@@ -358,6 +394,7 @@
     "prefix": "v",
     "install": ["--build-from-source"],
     "replace": true,
+    "flaky": ["linux"],
     "verify-node-gyp-called": true
   },
   "thread-sleep": {
@@ -383,12 +420,14 @@
       "node-version": ">=6.0.0",
       "prefix": "v",
       "replace": true,
+      "flaky": ["linux"],
       "verify-node-gyp-called": true
   },
   "v8-debug": {
       "node-version": ">=6.0.0",
       "prefix": "v",
       "replace": true,
+      "flaky": ["linux"],
       "verify-node-gyp-called": true
   }
 }
