@@ -279,14 +279,18 @@
     "replace": true
   },
   "cheerio": {
-    "replace": true
+    "replace": true,
+    "test-command": {
+      "win32": "node_modules\\\\.bin\\\\mocha --recursive"
+    }
   },
   "node-uuid": {
     "replace": true,
     "prefix": "v"
   },
   "winston": {
-    "replace": true
+    "replace": true,
+    "flaky": "win32"
   },
   "yargs": {
     "replace": true,
@@ -339,15 +343,17 @@
   },
   "time": {
     "replace": true,
-    "flaky": ["linux-ia32", "aix", "s390"]
+    "flaky": ["linux-ia32", "aix", "s390", "win32"]
   },
   "bson": {
     "replace": true,
-    "prefix": "V"
+    "prefix": "V",
+    "flaky": "win32"
   },
   "ember-cli": {
     "replace": true,
-    "prefix": "v"
+    "prefix": "v",
+    "flaky": "win32"
   },
   "node-sass": [ {
       "replace": true,
@@ -364,7 +370,8 @@
   ],
   "full-icu-test": {
     "replace": true,
-    "prefix": "v"
+    "prefix": "v",
+    "flaky": "Win32"
   },
   "bufferutil": {
     "replace": true,
@@ -394,7 +401,7 @@
     "prefix": "v",
     "install": ["--build-from-source"],
     "replace": true,
-    "flaky": ["linux"],
+    "flaky": true,
     "verify-node-gyp-called": true
   },
   "thread-sleep": {
@@ -420,14 +427,14 @@
       "node-version": ">=6.0.0",
       "prefix": "v",
       "replace": true,
-      "flaky": ["linux"],
+      "flaky": true,
       "verify-node-gyp-called": true
   },
   "v8-debug": {
       "node-version": ">=6.0.0",
       "prefix": "v",
       "replace": true,
-      "flaky": ["linux"],
+      "flaky": true,
       "verify-node-gyp-called": true
   }
 }
