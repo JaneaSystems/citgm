@@ -286,7 +286,8 @@
   },
   "node-uuid": {
     "replace": true,
-    "prefix": "v"
+    "prefix": "v",
+    "flaky": "win32"
   },
   "winston": {
     "replace": true,
@@ -371,7 +372,7 @@
   "full-icu-test": {
     "replace": true,
     "prefix": "v",
-    "flaky": "Win32"
+    "flaky": "win32"
   },
   "bufferutil": {
     "replace": true,
