@@ -8,6 +8,13 @@ var lookup = rewire('../lib/lookup');
 var makeUrl = lookup.__get__('makeUrl');
 var getLookupTable = lookup.get;
 
+function testLookup(context, next) {
+  var table = getLookupTable(context.options);
+  var moduleTests = table[context.module.name];
+  context.test = moduleTests instanceof Array ? moduleTests[0] : moduleTests;
+  lookup(context, next);
+}
+
 test('lookup: makeUrl', function (t) {
   var repo = 'https://github.com/nodejs/citgm';
 
@@ -107,7 +114,7 @@ test('lookup: module not in table', function (t) {
     emit: function () {}
   };
 
-  lookup(context, function (err) {
+  testLookup(context, function (err) {
     t.error(err);
     t.notOk(context.module.raw, 'raw should remain falsey if module is not in lookup');
     t.end();
@@ -132,22 +139,9 @@ test('lookup: module in table', function (t) {
     emit: function () {}
   };
 
-  lookup(context, function (err) {
+  testLookup(context, function (err) {
     t.error(err);
     t.equals(context.module.raw, 'https://github.com/lodash/lodash/archive/master.tar.gz', 'raw should be truthy if the module was in the list');
-    t.end();
-  });
-});
-
-test('lookup: no table', function (t) {
-  var context = {
-    options: {
-      lookup: 'test/fixtures/custom-lookup-does-not-exist.json'
-    }
-  };
-
-  lookup(context, function (err) {
-    t.equals(err && err.message, 'Lookup table could not be loaded');
     t.end();
   });
 });
@@ -168,7 +162,7 @@ test('lookup: replace with no repo', function (t) {
     emit: function () {}
   };
 
-  lookup(context, function (err) {
+  testLookup(context, function (err) {
     t.equals(err && err.message, 'no-repository-field in package.json');
     t.end();
   });
@@ -190,7 +184,7 @@ test('lookup: lookup with script', function (t) {
     emit: function () {}
   };
 
-  lookup(context, function (err) {
+  testLookup(context, function (err) {
     t.error(err);
     t.equals(context.options.script, './example-test-script-passing.sh');
     t.end();
@@ -215,7 +209,7 @@ test('lookup: --fail-flaky', function (t) {
     emit: function () {}
   };
 
-  lookup(context, function (err) {
+  testLookup(context, function (err) {
     t.error(err);
     t.false(context.module.flaky, 'flaky should be disabled');
     t.end();
@@ -230,5 +224,32 @@ test('lookup: ensure lookup works', function (t) {
     t.error(err);
   }
   t.ok(lookup, 'the lookup table should exist');
+  t.end();
+});
+
+test('lookup: ensure multiple test cases are supported', function(t) {
+  var context = {
+    module: {
+      name: 'omg-i-pass',
+      raw: null
+    },
+    meta: {
+      repository: undefined,
+      version: '1.2.3'
+    },
+    options: {
+      lookup: 'test/fixtures/custom-lookup-multiple-tests.json'
+    },
+    emit: function () {}
+  };
+
+  var lookup = getLookupTable(context.options);
+  t.ok(lookup, 'the lookup table should exist');
+  t.ok(lookup['omg-i-pass'], 'tests for omg-i-pass should exist' );
+  var tests = lookup['omg-i-pass'];
+  t.ok(tests instanceof Array, 'getLookupTable should return Array');
+  t.equals(tests.length, 2);
+  t.equals(tests[0]['test-name'], 'test no 1');
+  t.equals(tests[1]['test-name'], 'test no 2');
   t.end();
 });

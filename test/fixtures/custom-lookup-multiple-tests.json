@@ -1,0 +1,9 @@
+{
+  "omg-i-pass": [ {
+      "test-name": "test no 1",
+      "replace": false
+    }, {
+      "test-name": "test no 2",
+      "replace": false
+    } ]
+}
