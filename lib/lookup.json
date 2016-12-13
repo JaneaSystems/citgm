@@ -1,4 +1,7 @@
 {
+  "citgm": {
+    "flaky": "win32"
+  },
   "lodash": {
     "replace": true
   },
