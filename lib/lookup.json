@@ -343,5 +343,7 @@
   "microtime": {
     "replace": true,
     "prefix": "v"
+  }, 
+  "hiredis": {
   }
 }
